@@ -7,7 +7,6 @@ target 'BookReview' do
 
   # Pods for BookReview
 
-  pod 'Swinject', '~> 1.1.4'
   target 'BookReviewTests' do
     inherit! :search_paths
     # Pods for testing
