@@ -1,16 +1,16 @@
 PODS:
-  - SwiftyJSON (5.0.0)
+  - Swinject (1.1.5)
 
 DEPENDENCIES:
-  - SwiftyJSON
+  - Swinject (~> 1.1.4)
 
 SPEC REPOS:
   trunk:
-    - SwiftyJSON
+    - Swinject
 
 SPEC CHECKSUMS:
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  Swinject: 49b2b23850829e0a6074681264dcb1aa64c0dbca
 
-PODFILE CHECKSUM: fb2c3d3c74f76022ec17f5118cf967b84c7e8b07
+PODFILE CHECKSUM: 7cfbad184326957bc82823c007821fc4a1f1131e
 
 COCOAPODS: 1.9.1
