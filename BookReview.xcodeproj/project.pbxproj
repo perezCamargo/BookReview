@@ -183,7 +183,6 @@
 				B06DCD7D07F0F715753D3355 /* Pods-BookReviewTests.debug.xcconfig */,
 				452E7CC2061F395D1B2CD230 /* Pods-BookReviewTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -627,6 +626,8 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "$(SRCROOT)/BookReview/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = comtelevisaBookReview;
 				PRODUCT_NAME = BookReview;
 			};
 			name = Debug;
@@ -637,6 +638,8 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "$(SRCROOT)/BookReview/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = comtelevisaBookReview;
 				PRODUCT_NAME = BookReview;
 			};
 			name = Release;
@@ -649,6 +652,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = BookReviewTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookReview.app/BookReview";
 			};
 			name = Debug;
 		};
@@ -659,6 +663,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = BookReviewTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookReview.app/BookReview";
 			};
 			name = Release;
 		};
