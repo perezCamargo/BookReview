@@ -26,6 +26,7 @@
 		F7BF4511258FD7DE001550E3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF4510258FD7DE001550E3 /* RootViewController.swift */; };
 		F7BF451C258FD8BE001550E3 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF451B258FD8BE001550E3 /* ListModel.swift */; };
 		F7C36F84258FF0C900B967C2 /* UserReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C36F83258FF0C900B967C2 /* UserReviewsViewController.swift */; };
+		F7C36FBD258FF35300B967C2 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C36FBC258FF35300B967C2 /* UIAlertControllerExtensions.swift */; };
 		F7CD2329258F0EC3003764EC /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD2328258F0EC3003764EC /* Controllers.swift */; };
 		F7CD2331258F0F3E003764EC /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD2330258F0F3E003764EC /* Storyboards.swift */; };
 		F7CD2338258F1491003764EC /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD2337258F1491003764EC /* Environment.swift */; };
@@ -107,6 +108,7 @@
 		F7BF4510258FD7DE001550E3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F7BF451B258FD8BE001550E3 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		F7C36F83258FF0C900B967C2 /* UserReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReviewsViewController.swift; sourceTree = "<group>"; };
+		F7C36FBC258FF35300B967C2 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		F7CD2328258F0EC3003764EC /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		F7CD2330258F0F3E003764EC /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		F7CD2337258F1491003764EC /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				F7CD23C3258F2C8B003764EC /* StringExtensions.swift */,
 				F7CD23C8258F2DF9003764EC /* CharacterSetExtensions.swift */,
 				F7CD23F5258F97E0003764EC /* UIViewControllerExtensions.swift */,
+				F7C36FBC258FF35300B967C2 /* UIAlertControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				F708DD09258FEA0D00FDFA6D /* ReviewDetailsViewController.swift in Sources */,
 				F7CD23FE258FA147003764EC /* Images.swift in Sources */,
 				F7BF4511258FD7DE001550E3 /* RootViewController.swift in Sources */,
+				F7C36FBD258FF35300B967C2 /* UIAlertControllerExtensions.swift in Sources */,
 				0BF649A41C5FB6CC00B8DDA0 /* AppDelegate.swift in Sources */,
 				F7CD2408258FAA9E003764EC /* ServiceLocator.swift in Sources */,
 				F7CD23C4258F2C8B003764EC /* StringExtensions.swift in Sources */,

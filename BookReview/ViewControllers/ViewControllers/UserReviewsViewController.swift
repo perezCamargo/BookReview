@@ -9,7 +9,42 @@
 import UIKit
 
 final class UserReviewsViewController: ListViewController<UserReviewsViewModel> {
+    override var rowHeigth: CGFloat {
+        get {
+            return 150.0
+        }
+        set { }
+    }
     
+    var model: UserModel?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    private func setup() {
+        if let model = self.model {
+            navigationItem.title = Localized.userReviewsTitle + model.username
+            viewModel.getFeed(args: model.id)
+        } else {
+            navigationItem.title = Localized.reviewsTitle
+            // this will produce an error and the UX error handler will be triggered
+            viewModel.getFeed(args: [])
+        }
+    }
+    
+    override func setupTableView() {
+        tableView.register(UINib(nibName: "PostTVCell", bundle: nil), forCellReuseIdentifier: PostTVCell.identifier)
+        super.setupTableView()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if case let ListModel.reviews(posts) = viewModel.rowsBind.value {
+            let reviewDetailVC: ReviewDetailsViewController = Controllers.reviewDetails.instance()
+            reviewDetailVC.model = posts[indexPath.row]
+            navigationController?.pushViewController(reviewDetailVC, animated: true)
+        }
+    }
 }
 
 final class UserReviewsViewModel: ListViewModel {
@@ -38,12 +73,20 @@ final class UserReviewsViewModel: ListViewModel {
         }
     }
     
-    func getFeed() {
+    func getFeed<T>(args: T) {
         self.isLoading = true
         
-        PostsEndpoints.getPosts.invoke { (error) in
-            print("::: Error VM")
-        } onSuccess: {[weak self] (model, code) in
+        guard let id = args as? Int else {
+            self.isLoading = false
+            self.error = .genericError
+            return
+        }
+        
+        PostsEndpoints.getPost(id: id).invoke(onFailure: { [weak self] (error) in
+            guard let self = self else { return }
+            guard let error = error else { return }
+            self.error = error
+        }, onSuccess: {[weak self] (model, code) in
             guard let self = self else { return }
             guard let posts = model as? [PostModel] else {
                 return
@@ -51,9 +94,9 @@ final class UserReviewsViewModel: ListViewModel {
             
             self.rows = posts
             self.isLoading = false
-        }
+        })
     }
-    
+
     deinit {
         rowsBind = (value: .reviews([]), bind: nil)
         loadingBind = (value: false, bind: nil)

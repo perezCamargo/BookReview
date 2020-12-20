@@ -47,7 +47,7 @@ final class ImageLoadingView: UIView, LoadingView {
         self.alpha = 1.0
         let x = view.bounds.midX - (ImageLoadingView.defaultRect.width / 2.0)
         let y = view.bounds.midY - (ImageLoadingView.defaultRect.height / 2.0)
-        print("::: X: \(x)  | Y: \(y)")
+        
         self.frame = CGRect(x: x,
                             y: y,
                             width: ImageLoadingView.defaultRect.width,

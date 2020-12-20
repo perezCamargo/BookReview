@@ -36,9 +36,11 @@ final class ReviewsListViewModel: ListViewModel {
     
     func getFeed() {
         self.isLoading = true
-        
-        PostsEndpoints.getPosts.invoke { (error) in
-            print("::: Error VM")
+
+        PostsEndpoints.getPosts.invoke {[weak self] (error) in
+            guard let self = self else { return }
+            guard let error = error else { return }
+            self.error = error
         } onSuccess: {[weak self] (model, code) in
             guard let self = self else { return }
             guard let posts = model as? [PostModel] else {

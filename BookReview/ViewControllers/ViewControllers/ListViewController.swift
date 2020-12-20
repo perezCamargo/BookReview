@@ -23,7 +23,6 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        viewModel.getFeed()
     }
     
     func setupTableView() {
@@ -53,9 +52,22 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
         viewModel.errorBind.bind = { [weak self] error in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                print("::: will present error screen/alert with retry button")
+                let retryAction = UIAlertController.ActionRecipe(actionText: Localized.retryAction, action: { [weak self] in
+                    guard let self = self else { return }
+                    self.retryAction()
+                })
+                let cancelAction = UIAlertController.ActionRecipe(actionText: Localized.cancelAction, action: nil)
+                let recipe = UIAlertController.AlertRecipe(title: Localized.alertErrorTitle,
+                                                           message: Localized.alertErrorMessage,
+                                                           actions: [retryAction, cancelAction])
+
+                UIAlertController.showCustomAlert(on: self, recipe: recipe)
             }
         }
+    }
+    
+    func retryAction() {
+        viewModel.getFeed()
     }
 
 // MARK: - UITableViewDelegate

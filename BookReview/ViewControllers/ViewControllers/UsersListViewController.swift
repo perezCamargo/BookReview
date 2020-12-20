@@ -12,10 +12,15 @@ final class UsersListViewController: ListViewController<UsersListViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Localized.usersTitle
+        viewModel.getFeed()
     }
     
     override func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifiers.cellIdentifier)
         super.setupTableView()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
     }
 }

@@ -9,3 +9,8 @@
 "empty" = "";
 "users_title" = "Users";
 "reviews_title" = "Reviews";
+"user_reviews_title" = "Reviews by ";
+"alert_error_title" = "Something went wrong!";
+"alert_error_message" = "Oops! Something went wrong 🤷‍♂️";
+"retry_text" = "RETRY";
+"cancel_text" = "CANCEL";

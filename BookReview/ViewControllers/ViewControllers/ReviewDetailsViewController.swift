@@ -9,16 +9,8 @@
 import UIKit
 
 class ReviewDetailsViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel! /*{
-        didSet {
-            self.titleLabel.text = self.model?.title
-        }
-    }*/
-    @IBOutlet weak var bodyTextView: UITextView! /*{
-        didSet {
-            self.bodyLabel.text = self.model?.body
-        }
-    }*/
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyTextView: UITextView!
     
     var model: PostModel?
     
@@ -27,7 +19,7 @@ class ReviewDetailsViewController: UIViewController {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         navigationItem.title = Localized.reviewsTitle
         titleLabel.text = model?.title
         bodyTextView.text = model?.body

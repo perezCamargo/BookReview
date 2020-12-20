@@ -13,14 +13,13 @@ final class ReviewsListViewController: ListViewController<ReviewsListViewModel> 
         get {
             return 150.0
         }
-        set {
-            super.rowHeigth = newValue
-        }
+        set { }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Localized.reviewsTitle
+        viewModel.getFeed()
     }
     
     override func setupTableView() {
@@ -35,5 +34,4 @@ final class ReviewsListViewController: ListViewController<ReviewsListViewModel> 
             navigationController?.pushViewController(reviewDetailVC, animated: true)
         }
     }
-
 }

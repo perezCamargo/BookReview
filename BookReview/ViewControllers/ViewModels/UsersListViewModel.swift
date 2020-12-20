@@ -37,8 +37,10 @@ final class UsersListViewModel: ListViewModel {
     func getFeed() {
         self.isLoading = true
         
-        UserEndpoints.getUsers.invoke { (error) in
-            print("::: Error VM")
+        UserEndpoints.getUsers.invoke {[weak self] (error) in
+            guard let self = self else { return }
+            guard let error = error else { return }
+            self.error = error
         } onSuccess: {[weak self] (model, code) in
             guard let self = self else { return }
             guard let users = model as? [UserModel] else {
