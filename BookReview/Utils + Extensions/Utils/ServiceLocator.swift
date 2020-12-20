@@ -16,4 +16,15 @@ class ServiceLocator {
     static func getService() -> AppFlowController {
         return AppFlowViewController()
     }
+    
+    static func getService(_ args: ServicesArguments) -> ListViewModel {
+        switch args {
+        case .usersList:
+            return UsersListViewModel()
+        }
+    }
+}
+
+enum ServicesArguments {
+    case usersList
 }

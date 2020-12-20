@@ -30,13 +30,11 @@ class RootViewController: UITabBarController {
                                       tag: 0)
         reviewsVC.view.backgroundColor = .blue
         
-        let userListVC: ListViewController = Controllers.list.instance()
+        let userListVC: UsersListViewController = Controllers.users.instance()
         let userListNavController = UINavigationController(rootViewController: userListVC)
         userListNavController.tabBarItem = UITabBarItem(title: Localized.usersTitle,
                                                     image: Images.secondTabBarIcon.templateImage,
                                                     tag: 1)
-        
-        
         
         viewControllers = [reviewListNavController, userListNavController]
     }

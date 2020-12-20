@@ -4,47 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes>
-        <!--List View Controller-->
-        <scene sceneID="DtL-y9-KBa">
-            <objects>
-                <viewController storyboardIdentifier="ListViewController" id="O1G-OE-wwv" customClass="ListViewController" customModule="BookReview" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gDW-9c-6Dp"/>
-                        <viewControllerLayoutGuide type="bottom" id="BZs-Me-Cgg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fyh-Hc-LP0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HCl-Zx-fCc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="HCl-Zx-fCc" firstAttribute="leading" secondItem="fyh-Hc-LP0" secondAttribute="leading" id="bfF-Xo-WWw"/>
-                            <constraint firstAttribute="trailing" secondItem="HCl-Zx-fCc" secondAttribute="trailing" id="e6s-SN-0PP"/>
-                            <constraint firstItem="BZs-Me-Cgg" firstAttribute="top" secondItem="HCl-Zx-fCc" secondAttribute="bottom" id="jsW-Uy-8pI"/>
-                            <constraint firstItem="HCl-Zx-fCc" firstAttribute="top" secondItem="gDW-9c-6Dp" secondAttribute="bottom" id="zsI-xP-xZr"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="HCl-Zx-fCc" id="S3a-cD-613"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zrW-ZV-d97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2428" y="-654"/>
-        </scene>
-    </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
+    <scenes/>
 </document>

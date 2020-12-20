@@ -9,7 +9,6 @@
 import UIKit
 
 enum Controllers {
-    case list
     case reviews
     case reviewDetails
     case users
@@ -19,6 +18,8 @@ enum Controllers {
         switch self {
         case .reviews:
             return .main
+        case .users:
+            return .lists
         default:
             return .main
         }

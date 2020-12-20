@@ -10,6 +10,7 @@ import UIKit
 
 enum Storyboards: String {
     case main = "Main"
+    case lists = "Lists"
     
     var file: UIStoryboard {
         return UIStoryboard(name: rawValue, bundle: bundle)
@@ -18,6 +19,8 @@ enum Storyboards: String {
     private var bundle: Bundle? {
         switch self {
         case .main:
+            return nil
+        case .lists:
             return nil
         }
     }

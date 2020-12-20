@@ -8,19 +8,17 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
-    private static let cellIdentifier = "basicCell"
-    
+class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: ListViewController.cellIdentifier)
+            self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifiers.cellIdentifier)
             self.tableView.delegate = self
             self.tableView.dataSource = self
         }
     }
     
     private lazy var loadingView: LoadingView = ServiceLocator.getService()
-    private var viewModel: UsersViewModel = UsersViewModel()
+    private lazy var viewModel: ListViewModel = ServiceLocator.getService(ViewModel.arg)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +43,6 @@ class ListViewController: UIViewController {
                 } else {
                     self.loadingView.stop()
                 }
-                
             }
         }
         
@@ -56,15 +53,13 @@ class ListViewController: UIViewController {
             }
         }
     }
-}
 
-extension ListViewController: UITableViewDelegate {
+// MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("::: Tapped: \(indexPath)")
     }
-}
 
-extension ListViewController: UITableViewDataSource {
+// MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -74,64 +69,15 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard var cell = tableView.dequeueReusableCell(withIdentifier: ListViewController.cellIdentifier) else {
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.cellIdentifier) else {
             fatalError("could not dequeue basic cell")
         }
         let model = viewModel.rowsBind.value[indexPath.row]
         
-        cell = UITableViewCell(style: .subtitle, reuseIdentifier: ListViewController.cellIdentifier)
+        cell = UITableViewCell(style: .subtitle, reuseIdentifier: CellIdentifiers.cellIdentifier)
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text =  model.name
         cell.detailTextLabel?.text = model.email
         return cell
-    }
-}
-
-class UsersViewModel {
-    typealias Bind<T> = (value: T, bind: ((T) -> Void)?)
-    
-    var rowsBind: Bind<[UserModel]> = (value: [], bind: nil)
-    var loadingBind: Bind<Bool> = (value: false, bind: nil)
-    var errorBind: Bind<NetworkError> = (value: .none, bind: nil)
-    
-    private var rows: [UserModel] = [] {
-        didSet {
-            self.rowsBind.value = self.rows
-            self.rowsBind.bind?(self.rows)
-        }
-    }
-    private var isLoading: Bool = false {
-        didSet {
-            self.loadingBind.value = self.isLoading
-            self.loadingBind.bind?(self.isLoading)
-        }
-    }
-    private var error: NetworkError = .none {
-        didSet {
-            self.errorBind.value = self.error
-            self.errorBind.bind?(self.error)
-        }
-    }
-    
-    func getFeed() {
-        self.isLoading = true
-        
-        UserEndpoints.getUsers.invoke { (error) in
-            print("::: Error VM")
-        } onSuccess: {[weak self] (model, code) in
-            guard let self = self else { return }
-            guard let users = model as? [UserModel] else {
-                return
-            }
-            
-            self.rows = users
-            self.isLoading = false
-        }
-    }
-    
-    deinit {
-        rowsBind = (value: [], bind: nil)
-        loadingBind = (value: false, bind: nil)
-        errorBind = (value: .none, bind: nil)
     }
 }

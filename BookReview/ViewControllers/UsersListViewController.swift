@@ -1,5 +1,5 @@
 //
-//  LoadingView.swift
+//  UsersListViewController.swift
 //  BookReview
 //
 //  Created by Felipe Arturo. Perez Camargo on 20/12/20.
@@ -8,7 +8,6 @@
 
 import UIKit
 
-protocol LoadingView {
-    func run(_ view: UIView)
-    func stop()
+class UsersListViewController: ListViewController<UsersListViewModel> {
+
 }
