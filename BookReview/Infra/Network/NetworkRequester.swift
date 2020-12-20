@@ -66,7 +66,7 @@ extension NetworkRequester {
             
             // Errors other than 200 codes should be handled here if make sense for your app
             if 500 > httpResponse.statusCode && 399 < httpResponse.statusCode {
-                // verify that data exist and it is an error response with an object in the json
+                // verify that data exist and it is an error response with an object in the json TODO: decode an handle specific error
                 guard let _ = data else {
                     failure?(.genericError)
                     return

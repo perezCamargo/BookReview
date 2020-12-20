@@ -27,6 +27,7 @@
 		F7BF451C258FD8BE001550E3 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF451B258FD8BE001550E3 /* ListModel.swift */; };
 		F7C36F84258FF0C900B967C2 /* UserReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C36F83258FF0C900B967C2 /* UserReviewsViewController.swift */; };
 		F7C36FBD258FF35300B967C2 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C36FBC258FF35300B967C2 /* UIAlertControllerExtensions.swift */; };
+		F7C36FC2259001C800B967C2 /* UserReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C36FC1259001C800B967C2 /* UserReviewsViewModel.swift */; };
 		F7CD2329258F0EC3003764EC /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD2328258F0EC3003764EC /* Controllers.swift */; };
 		F7CD2331258F0F3E003764EC /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD2330258F0F3E003764EC /* Storyboards.swift */; };
 		F7CD2338258F1491003764EC /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD2337258F1491003764EC /* Environment.swift */; };
@@ -42,7 +43,6 @@
 		F7CD23B0258F2A19003764EC /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD23AF258F2A19003764EC /* UserEndpoints.swift */; };
 		F7CD23B6258F2A73003764EC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD23B5258F2A73003764EC /* UserModel.swift */; };
 		F7CD23C4258F2C8B003764EC /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD23C3258F2C8B003764EC /* StringExtensions.swift */; };
-		F7CD23C9258F2DF9003764EC /* CharacterSetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD23C8258F2DF9003764EC /* CharacterSetExtensions.swift */; };
 		F7CD23EC258F9646003764EC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD23EB258F9646003764EC /* LoadingView.swift */; };
 		F7CD23F1258F96BB003764EC /* Rotable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD23F0258F96BB003764EC /* Rotable.swift */; };
 		F7CD23F6258F97E0003764EC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD23F5258F97E0003764EC /* UIViewControllerExtensions.swift */; };
@@ -109,6 +109,7 @@
 		F7BF451B258FD8BE001550E3 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		F7C36F83258FF0C900B967C2 /* UserReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReviewsViewController.swift; sourceTree = "<group>"; };
 		F7C36FBC258FF35300B967C2 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		F7C36FC1259001C800B967C2 /* UserReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReviewsViewModel.swift; sourceTree = "<group>"; };
 		F7CD2328258F0EC3003764EC /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		F7CD2330258F0F3E003764EC /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		F7CD2337258F1491003764EC /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		F7CD23AF258F2A19003764EC /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
 		F7CD23B5258F2A73003764EC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F7CD23C3258F2C8B003764EC /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		F7CD23C8258F2DF9003764EC /* CharacterSetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSetExtensions.swift; sourceTree = "<group>"; };
 		F7CD23EB258F9646003764EC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F7CD23F0258F96BB003764EC /* Rotable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotable.swift; sourceTree = "<group>"; };
 		F7CD23F5258F97E0003764EC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -371,7 +371,6 @@
 			isa = PBXGroup;
 			children = (
 				F7CD23C3258F2C8B003764EC /* StringExtensions.swift */,
-				F7CD23C8258F2DF9003764EC /* CharacterSetExtensions.swift */,
 				F7CD23F5258F97E0003764EC /* UIViewControllerExtensions.swift */,
 				F7C36FBC258FF35300B967C2 /* UIAlertControllerExtensions.swift */,
 			);
@@ -384,6 +383,7 @@
 				F7BF44F6258FCD89001550E3 /* ListViewModel.swift */,
 				F7CD238A258F278C003764EC /* ReviewsListViewModel.swift */,
 				F7CD2440258FBA4E003764EC /* UsersListViewModel.swift */,
+				F7C36FC1259001C800B967C2 /* UserReviewsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -624,12 +624,12 @@
 				F7CD2329258F0EC3003764EC /* Controllers.swift in Sources */,
 				F7CD239A258F28F8003764EC /* RequestRecipe.swift in Sources */,
 				F7CD23B6258F2A73003764EC /* UserModel.swift in Sources */,
-				F7CD23C9258F2DF9003764EC /* CharacterSetExtensions.swift in Sources */,
 				F7C36F84258FF0C900B967C2 /* UserReviewsViewController.swift in Sources */,
 				F7BF451C258FD8BE001550E3 /* ListModel.swift in Sources */,
 				F7BF4509258FD1C0001550E3 /* ReviewsListViewController.swift in Sources */,
 				F7CD2450258FC18D003764EC /* UsersListViewController.swift in Sources */,
 				F7CD23F1258F96BB003764EC /* Rotable.swift in Sources */,
+				F7C36FC2259001C800B967C2 /* UserReviewsViewModel.swift in Sources */,
 				F7CD239E258F28F8003764EC /* Printable.swift in Sources */,
 				F7CD2455258FC288003764EC /* CellIdentifiers.swift in Sources */,
 				F7CD23EC258F9646003764EC /* LoadingView.swift in Sources */,

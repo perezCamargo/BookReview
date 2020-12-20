@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Easier to handle ui and reuse code
 enum ListModel {
     case users([UserModel])
     case reviews([PostModel])

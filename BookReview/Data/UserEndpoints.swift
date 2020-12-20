@@ -11,7 +11,7 @@ import Foundation
 enum UserEndpoints: NetworkRequester {
     /// **Returns** [UserModel]
     case getUsers
-    /// **Returns** UserModel of given id
+    /// **Returns** UserModel of given _id_
     case getUser(id: Int)
     
     private var url: URL? {

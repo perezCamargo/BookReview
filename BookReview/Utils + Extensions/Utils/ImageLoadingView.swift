@@ -38,7 +38,6 @@ final class ImageLoadingView: UIView, LoadingView {
         self.loadingImage.tintColor = .purple
         self.addSubview(self.loadingImage)
         self.layer.cornerRadius = ImageLoadingView.defaultRect.width / 2.0
-//        self.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     }
 
     func run(_ view: UIView) {

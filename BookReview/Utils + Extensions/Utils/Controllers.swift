@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Helper to get instances of all Storyboard ViewControllers.
+// helps to know the VC that are allocated in storyboards and in in which story board they are.
 enum Controllers {
     case reviews
     case reviewDetails

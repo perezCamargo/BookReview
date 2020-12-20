@@ -11,7 +11,7 @@ import Foundation
 enum PostsEndpoints: NetworkRequester {
     /// **Returns** [PostModel]
     case getPosts
-    /// **Returns** PostModel
+    /// **Returns** PostModel of given _id_
     case getPost(id: Int)
     /// **Returns** [PostModel] for the specific user
     case getUserPosts(userId: Int)

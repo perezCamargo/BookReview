@@ -65,3 +65,21 @@ extension MasterCodable {
         }
     }
 }
+
+private extension CharacterSet {
+    static let urlQueryValueAllowed: CharacterSet = {
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$'()*+,;"// does not include "="  or "&" due API normaly has troubles with them
+
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.remove(charactersIn: generalDelimitersToEncode + subDelimitersToEncode)
+
+        return allowed
+    }()
+}
+
+private extension String {
+    func addingPercentEncodingForQueryParameter() -> String? {
+        return addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed)
+    }
+}

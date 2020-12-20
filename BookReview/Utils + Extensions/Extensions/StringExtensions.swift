@@ -12,8 +12,4 @@ extension String {
     func toURL() -> URL? {
         return URL(string: self)
     }
-    
-    func addingPercentEncodingForQueryParameter() -> String? {
-        return addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed)
-    }
 }

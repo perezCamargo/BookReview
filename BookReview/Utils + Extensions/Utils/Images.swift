@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Trying to not use literals and also we prevent random access from everywhere with hardcoded strings. Each Asset should be added here.
 enum Images: String {
     case placeHolder = "place_holder"
     case firstTabBarIcon = "first"
