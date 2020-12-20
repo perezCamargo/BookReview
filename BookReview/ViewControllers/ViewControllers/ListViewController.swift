@@ -19,10 +19,17 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
     
     lazy var viewModel: ListViewModel = ServiceLocator.getService(ViewModel.arg)
     private lazy var loadingView: LoadingView = ServiceLocator.getService()
+    private lazy var refresh: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(ListViewController.retryAction), for: .valueChanged)
+        refresh.tintColor = .clear
+        return refresh
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        tableView.addSubview(refresh)
     }
     
     func setupTableView() {
@@ -35,6 +42,7 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refresh.endRefreshing()
             }
         }
         
@@ -55,8 +63,12 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
                 let retryAction = UIAlertController.ActionRecipe(actionText: Localized.retryAction, action: { [weak self] in
                     guard let self = self else { return }
                     self.retryAction()
+                    self.refresh.endRefreshing()
                 })
-                let cancelAction = UIAlertController.ActionRecipe(actionText: Localized.cancelAction, action: nil)
+                let cancelAction = UIAlertController.ActionRecipe(actionText: Localized.cancelAction, action: {[weak self] in
+                    guard let self = self else { return }
+                    self.refresh.endRefreshing()
+                })
                 let recipe = UIAlertController.AlertRecipe(title: Localized.alertErrorTitle,
                                                            message: Localized.alertErrorMessage,
                                                            actions: [retryAction, cancelAction])
@@ -66,7 +78,7 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
         }
     }
     
-    func retryAction() {
+    @objc func retryAction() {
         viewModel.getFeed()
     }
 

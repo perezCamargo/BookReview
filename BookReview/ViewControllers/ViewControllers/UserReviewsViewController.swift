@@ -46,4 +46,8 @@ final class UserReviewsViewController: ListViewController<UserReviewsViewModel> 
             navigationController?.pushViewController(reviewDetailVC, animated: true)
         }
     }
+    
+    override func retryAction() {
+        viewModel.getFeed(args: model?.id)
+    }
 }
