@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  BookReview
+
+  Created by Felipe Arturo. Perez Camargo on 20/12/20.
+  Copyright © 2020 Televisa. All rights reserved.
+*/
+
+"empty" = "";
+"users_title" = "Users";
+"reviews_title" = "Reviews";
+"user_reviews_title" = "Reviews by ";
+"alert_error_title" = "Something went wrong!";
+"alert_error_message" = "Oops! Something went wrong 🤷‍♂️";
+"retry_text" = "RETRY";
+"cancel_text" = "CANCEL";

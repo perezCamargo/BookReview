@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="247" id="KGk-i7-Jjw" customClass="PostTVCell" customModule="BookReview" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="326" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="326" height="185"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunt aut facere repellat provident occaecati excepturi optio reprehenderit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUS-eh-sRW">
+                        <rect key="frame" x="8" y="8" width="310" height="61"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="Bi1-vy-3wN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouF-87-zxE">
+                        <rect key="frame" x="8" y="75" width="310" height="84"/>
+                        <string key="text">quia et suscipit
+suscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ouF-87-zxE" firstAttribute="top" secondItem="rUS-eh-sRW" secondAttribute="bottom" constant="6" id="w5k-m2-lgU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ouF-87-zxE" secondAttribute="bottom" constant="8" id="2FN-pf-dCr"/>
+                <constraint firstItem="rUS-eh-sRW" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" constant="8" id="8DU-m4-5lB"/>
+                <constraint firstItem="ouF-87-zxE" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="8" id="JNo-Tj-Px1"/>
+                <constraint firstItem="H2p-sc-9uM" firstAttribute="trailing" secondItem="rUS-eh-sRW" secondAttribute="trailing" constant="8" id="PRF-Gh-ZNe"/>
+                <constraint firstItem="H2p-sc-9uM" firstAttribute="trailing" secondItem="ouF-87-zxE" secondAttribute="trailing" constant="8" id="ggC-dj-5bE"/>
+                <constraint firstItem="rUS-eh-sRW" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="8" id="qaK-fp-2Yb"/>
+            </constraints>
+            <connections>
+                <outlet property="bodyLabel" destination="ouF-87-zxE" id="fly-H6-vBA"/>
+                <outlet property="titleLabel" destination="rUS-eh-sRW" id="mR7-Od-GM5"/>
+            </connections>
+            <point key="canvasLocation" x="139.13043478260872" y="155.69196428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
