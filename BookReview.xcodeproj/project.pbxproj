@@ -801,6 +801,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3536550F9FEAB1854636E8B6 /* Pods-BookReview.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -815,6 +816,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A1EA7007D4F6D613A3462914 /* Pods-BookReview.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = "$(SRCROOT)/BookReview/Info.plist";
