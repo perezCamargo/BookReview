@@ -25,4 +25,8 @@ extension UIViewController {
         removeFromParent()
         view.removeFromSuperview()
     }
+    
+    func genericErrorAlert() {
+        
+    }
 }

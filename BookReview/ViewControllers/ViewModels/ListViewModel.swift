@@ -18,4 +18,15 @@ protocol ListViewModel {
     var errorBind: Bind<NetworkError> { get set }
     
     func getFeed()
+    func getFeed<T>(args: T)
+}
+
+extension ListViewModel {
+    func getFeed() {
+        fatalError("\(#function) Must be implemented by <\(Self.self)>")
+    }
+    
+    func getFeed<T>(args: T) {
+        fatalError("\(#function) Must be implemented by <\(Self.self)>")
+    }
 }

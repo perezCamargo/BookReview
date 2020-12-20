@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Basic implementation of service locator to create and return instances on deman
 class ServiceLocator {
     static func getService() -> LoadingView {
         return ImageLoadingView(Images.loader.templateImage)
@@ -23,6 +24,8 @@ class ServiceLocator {
             return UsersListViewModel()
         case .reviewsList:
             return ReviewsListViewModel()
+        case .userReviewsList:
+            return UserReviewsViewModel()
         }
     }
 }
@@ -30,4 +33,5 @@ class ServiceLocator {
 enum ServicesArguments {
     case usersList
     case reviewsList
+    case userReviewsList
 }

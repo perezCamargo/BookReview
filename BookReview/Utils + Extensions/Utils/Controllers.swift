@@ -20,6 +20,8 @@ enum Controllers {
             return .lists
         case .users:
             return .lists
+        case .reviewDetails:
+            return .main
         default:
             return .main
         }

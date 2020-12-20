@@ -20,11 +20,20 @@ final class ReviewsListViewController: ListViewController<ReviewsListViewModel> 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = Localized.reviewsTitle
+        navigationItem.title = Localized.reviewsTitle
     }
     
     override func setupTableView() {
         tableView.register(UINib(nibName: "PostTVCell", bundle: nil), forCellReuseIdentifier: PostTVCell.identifier)
         super.setupTableView()
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if case let ListModel.reviews(posts) = viewModel.rowsBind.value {
+            let reviewDetailVC: ReviewDetailsViewController = Controllers.reviewDetails.instance()
+            reviewDetailVC.model = posts[indexPath.row]
+            navigationController?.pushViewController(reviewDetailVC, animated: true)
+        }
+    }
+
 }

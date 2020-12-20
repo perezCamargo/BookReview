@@ -1,24 +1,28 @@
 //
-//  UsersListViewModel.swift
+//  UserReviewsViewController.swift
 //  BookReview
 //
 //  Created by Felipe Arturo. Perez Camargo on 20/12/20.
 //  Copyright © 2020 Televisa. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-final class UsersListViewModel: ListViewModel {
-    static var arg: ServicesArguments = .usersList
+final class UserReviewsViewController: ListViewController<UserReviewsViewModel> {
     
-    var rowsBind: Bind<ListModel> = (value: .users([]), bind: nil)
+}
+
+final class UserReviewsViewModel: ListViewModel {
+    static var arg: ServicesArguments = .userReviewsList
+    
+    var rowsBind: Bind<ListModel> = (value: .reviews([]), bind: nil)
     var loadingBind: Bind<Bool> = (value: false, bind: nil)
     var errorBind: Bind<NetworkError> = (value: .none, bind: nil)
     
-    private var rows: [UserModel] = [] {
+    private var rows: [PostModel] = [] {
         didSet {
-            self.rowsBind.value = .users(self.rows)
-            self.rowsBind.bind?(.users(self.rows))
+            self.rowsBind.value = .reviews(self.rows)
+            self.rowsBind.bind?(.reviews(self.rows))
         }
     }
     private var isLoading: Bool = false {
@@ -37,21 +41,21 @@ final class UsersListViewModel: ListViewModel {
     func getFeed() {
         self.isLoading = true
         
-        UserEndpoints.getUsers.invoke { (error) in
+        PostsEndpoints.getPosts.invoke { (error) in
             print("::: Error VM")
         } onSuccess: {[weak self] (model, code) in
             guard let self = self else { return }
-            guard let users = model as? [UserModel] else {
+            guard let posts = model as? [PostModel] else {
                 return
             }
             
-            self.rows = users
+            self.rows = posts
             self.isLoading = false
         }
     }
     
     deinit {
-        rowsBind = (value: .users([]), bind: nil)
+        rowsBind = (value: .reviews([]), bind: nil)
         loadingBind = (value: false, bind: nil)
         errorBind = (value: .none, bind: nil)
     }

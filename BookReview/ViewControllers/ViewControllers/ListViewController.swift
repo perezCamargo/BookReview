@@ -17,8 +17,8 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
     
     var rowHeigth: CGFloat = 75.0
     
+    lazy var viewModel: ListViewModel = ServiceLocator.getService(ViewModel.arg)
     private lazy var loadingView: LoadingView = ServiceLocator.getService()
-    private lazy var viewModel: ListViewModel = ServiceLocator.getService(ViewModel.arg)
     
     override func viewDidLoad() {
         super.viewDidLoad()
