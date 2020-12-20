@@ -108,7 +108,7 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: CellIdentifiers.cellIdentifier)
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text =  model.name
-            cell.detailTextLabel?.text = model.email
+            cell.detailTextLabel?.text = "\(model.username) | \(model.email)"
             return cell
             
         case .reviews(let reivews):

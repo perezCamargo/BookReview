@@ -69,6 +69,36 @@
             </objects>
             <point key="canvasLocation" x="-697" y="-52"/>
         </scene>
+        <!--User Reviews View Controller-->
+        <scene sceneID="Yk9-B7-e4E">
+            <objects>
+                <viewController storyboardIdentifier="UserReviewsViewController" id="okQ-4e-PAF" customClass="UserReviewsViewController" customModule="BookReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BMX-XH-BOY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pn4-q2-nje">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cQs-Nw-DLo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cQs-Nw-DLo" firstAttribute="bottom" secondItem="Pn4-q2-nje" secondAttribute="bottom" id="4Bu-IZ-E4f"/>
+                            <constraint firstItem="Pn4-q2-nje" firstAttribute="leading" secondItem="cQs-Nw-DLo" secondAttribute="leading" id="7kd-fg-Jgx"/>
+                            <constraint firstItem="cQs-Nw-DLo" firstAttribute="trailing" secondItem="Pn4-q2-nje" secondAttribute="trailing" id="Iq0-t6-eHV"/>
+                            <constraint firstItem="Pn4-q2-nje" firstAttribute="top" secondItem="cQs-Nw-DLo" secondAttribute="top" id="nv9-uq-Y5e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Pn4-q2-nje" id="mnE-DB-84b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qhz-bx-kUX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30" y="-52"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

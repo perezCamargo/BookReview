@@ -44,6 +44,8 @@ final class ReviewsListViewModel: ListViewModel {
         } onSuccess: {[weak self] (model, code) in
             guard let self = self else { return }
             guard let posts = model as? [PostModel] else {
+                self.isLoading = false
+                self.error = .genericError
                 return
             }
             

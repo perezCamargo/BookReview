@@ -22,8 +22,8 @@ enum Controllers {
             return .lists
         case .reviewDetails:
             return .main
-        default:
-            return .main
+        case .userReviews:
+            return .lists
         }
     }
     

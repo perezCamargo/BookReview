@@ -44,6 +44,8 @@ final class UsersListViewModel: ListViewModel {
         } onSuccess: {[weak self] (model, code) in
             guard let self = self else { return }
             guard let users = model as? [UserModel] else {
+                self.isLoading = false
+                self.error = .genericError
                 return
             }
             

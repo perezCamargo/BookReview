@@ -21,6 +21,10 @@ final class UsersListViewController: ListViewController<UsersListViewModel> {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        if case let ListModel.users(users) = viewModel.rowsBind.value {
+            let userReviewsVC: UserReviewsViewController = Controllers.userReviews.instance()
+            userReviewsVC.model = users[indexPath.row]
+            navigationController?.pushViewController(userReviewsVC, animated: true)
+        }
     }
 }

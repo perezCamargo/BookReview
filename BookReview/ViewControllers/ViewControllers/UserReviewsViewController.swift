@@ -20,6 +20,7 @@ final class UserReviewsViewController: ListViewController<UserReviewsViewModel> 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
     }
     
     private func setup() {
@@ -77,18 +78,18 @@ final class UserReviewsViewModel: ListViewModel {
         self.isLoading = true
         
         guard let id = args as? Int else {
-            self.isLoading = false
-            self.error = .genericError
+            self.triggerError()
             return
         }
         
-        PostsEndpoints.getPost(id: id).invoke(onFailure: { [weak self] (error) in
+        PostsEndpoints.getUserPosts(userId: id).invoke(onFailure: { [weak self] (error) in
             guard let self = self else { return }
             guard let error = error else { return }
             self.error = error
         }, onSuccess: {[weak self] (model, code) in
             guard let self = self else { return }
             guard let posts = model as? [PostModel] else {
+                self.triggerError()
                 return
             }
             
@@ -97,6 +98,10 @@ final class UserReviewsViewModel: ListViewModel {
         })
     }
 
+    private func triggerError() {
+        self.isLoading = false
+        self.error = .genericError
+    }
     deinit {
         rowsBind = (value: .reviews([]), bind: nil)
         loadingBind = (value: false, bind: nil)
