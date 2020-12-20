@@ -11,11 +11,11 @@ import UIKit
 class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifiers.cellIdentifier)
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
+            self.setupTableView()
         }
     }
+    
+    var rowHeigth: CGFloat = 75.0
     
     private lazy var loadingView: LoadingView = ServiceLocator.getService()
     private lazy var viewModel: ListViewModel = ServiceLocator.getService(ViewModel.arg)
@@ -24,7 +24,11 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
         super.viewDidLoad()
         bind()
         viewModel.getFeed()
-        self.navigationItem.title = Localized.usersTitle
+    }
+    
+    func setupTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     private func bind() {
@@ -59,25 +63,51 @@ class ListViewController<ViewModel: ListViewModel>: UIViewController, UITableVie
         print("::: Tapped: \(indexPath)")
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return rowHeigth
+    }
+
 // MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.rowsBind.value.count
+        let rowModel = viewModel.rowsBind.value
+        
+        switch rowModel {
+        case .users(let users):
+            return users.count
+        case .reviews(let reviews):
+            return reviews.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard var cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.cellIdentifier) else {
-            fatalError("could not dequeue basic cell")
-        }
-        let model = viewModel.rowsBind.value[indexPath.row]
+        let rowModel = viewModel.rowsBind.value
         
-        cell = UITableViewCell(style: .subtitle, reuseIdentifier: CellIdentifiers.cellIdentifier)
-        cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text =  model.name
-        cell.detailTextLabel?.text = model.email
-        return cell
+        switch rowModel {
+        case .users(let users):
+            guard var cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.cellIdentifier) else {
+                fatalError("could not dequeue basic cell")
+            }
+            let model = users[indexPath.row]
+            
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: CellIdentifiers.cellIdentifier)
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text =  model.name
+            cell.detailTextLabel?.text = model.email
+            return cell
+            
+        case .reviews(let reivews):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTVCell.identifier, for: indexPath) as? PostTVCell else {
+                fatalError("could dequeue cell with identifier: \(PostTVCell.identifier)")
+            }
+            
+            let model = reivews[indexPath.row]
+            cell.setup(model)
+            
+            return cell
+        }
     }
 }

@@ -18,24 +18,3 @@ class AppFlowViewController: UIViewController, AppFlowController {
         add(child: RootViewController(), container: view)
     }
 }
-
-class RootViewController: UITabBarController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let reviewsVC = UIViewController()
-        let reviewListNavController = UINavigationController(rootViewController: reviewsVC)
-        reviewsVC.tabBarItem = UITabBarItem(title: Localized.reviewsTitle,
-                                      image: Images.firstTabBarIcon.templateImage,
-                                      tag: 0)
-        reviewsVC.view.backgroundColor = .blue
-        
-        let userListVC: UsersListViewController = Controllers.users.instance()
-        let userListNavController = UINavigationController(rootViewController: userListVC)
-        userListNavController.tabBarItem = UITabBarItem(title: Localized.usersTitle,
-                                                    image: Images.secondTabBarIcon.templateImage,
-                                                    tag: 1)
-        
-        viewControllers = [reviewListNavController, userListNavController]
-    }
-}

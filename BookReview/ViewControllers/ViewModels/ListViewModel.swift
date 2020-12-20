@@ -10,8 +10,10 @@ import Foundation
 
 protocol ListViewModel {
     typealias Bind<T> = (value: T, bind: ((T) -> Void)?)
+    
     static var arg: ServicesArguments { get }
-    var rowsBind: Bind<[UserModel]> { get set }
+    
+    var rowsBind: Bind<ListModel> { get set }
     var loadingBind: Bind<Bool> { get set }
     var errorBind: Bind<NetworkError> { get set }
     

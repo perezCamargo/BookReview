@@ -21,10 +21,13 @@ class ServiceLocator {
         switch args {
         case .usersList:
             return UsersListViewModel()
+        case .reviewsList:
+            return ReviewsListViewModel()
         }
     }
 }
 
 enum ServicesArguments {
     case usersList
+    case reviewsList
 }

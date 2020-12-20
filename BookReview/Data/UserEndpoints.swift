@@ -20,7 +20,7 @@ enum UserEndpoints: NetworkRequester {
         switch self {
         case .getUsers:
             return "\(baseURL)/users".toURL()
-        case let .getUser(id: id):
+        case .getUser(id: let id):
             return "\(baseURL)/users/\(id)".toURL()
         }
     }
@@ -28,12 +28,7 @@ enum UserEndpoints: NetworkRequester {
     var recipe: RequestRecipe? {
         guard let url = self.url else { return nil }
         
-        switch self {
-        case .getUsers:
-            return RequestRecipe(url: url)
-        case .getUser:
-            return RequestRecipe(url: url)
-        }
+        return RequestRecipe(url: url)
     }
     
     func decode(data: Data) -> AnyObject? {

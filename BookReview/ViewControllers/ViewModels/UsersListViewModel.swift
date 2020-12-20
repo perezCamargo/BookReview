@@ -11,14 +11,14 @@ import Foundation
 class UsersListViewModel: ListViewModel {
     static var arg: ServicesArguments = .usersList
     
-    var rowsBind: Bind<[UserModel]> = (value: [], bind: nil)
+    var rowsBind: Bind<ListModel> = (value: .users([]), bind: nil)
     var loadingBind: Bind<Bool> = (value: false, bind: nil)
     var errorBind: Bind<NetworkError> = (value: .none, bind: nil)
     
     private var rows: [UserModel] = [] {
         didSet {
-            self.rowsBind.value = self.rows
-            self.rowsBind.bind?(self.rows)
+            self.rowsBind.value = .users(self.rows)
+            self.rowsBind.bind?(.users(self.rows))
         }
     }
     private var isLoading: Bool = false {
@@ -51,7 +51,7 @@ class UsersListViewModel: ListViewModel {
     }
     
     deinit {
-        rowsBind = (value: [], bind: nil)
+        rowsBind = (value: .users([]), bind: nil)
         loadingBind = (value: false, bind: nil)
         errorBind = (value: .none, bind: nil)
     }

@@ -17,7 +17,7 @@ enum Controllers {
     private var storyboard: Storyboards {
         switch self {
         case .reviews:
-            return .main
+            return .lists
         case .users:
             return .lists
         default:

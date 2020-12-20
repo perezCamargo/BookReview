@@ -8,6 +8,16 @@
 
 import UIKit
 
-class UsersListViewController: ListViewController<UsersListViewModel> {
-
+final class UsersListViewController: ListViewController<UsersListViewModel> {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title = Localized.usersTitle
+    }
+    
+    override func setupTableView() {
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifiers.cellIdentifier)
+        
+        super.setupTableView()
+    }
+    
 }

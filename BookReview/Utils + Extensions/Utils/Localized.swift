@@ -9,6 +9,7 @@
 import Foundation
 
 struct Localized {
+    static let empty = "empty".localized()
     static let usersTitle = "users_title".localized()
     static let reviewsTitle = "reviews_title".localized()
 }
